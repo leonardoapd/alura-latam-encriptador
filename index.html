@@ -6,34 +6,49 @@
 		<title>Challenge - Desafio 1 - Logica</title>
 	</head>
 	<body>
-        <header class="header">
-            <a href="#home" class="header__logo-link">
-                <img src="./assets/alura-logo.png" alt="Alura" class="header__logo-img" />
-            </a>
-        </header>
-        <main class="main">
-            <section class="input-section">
-                <input type="text" id="message" placeholder="Ingrese el texto aqui" class="input-section__input" />
-                <p class="input-section__instructions">
-                    <i>
-                        <img src="./assets/info-icon.png" alt="info-icon" class="input-section__info-icon">
-                    </i>
-                    Solo letras minúsculas y sin acentos
-                </p>
-                <div class="input-section__buttons">
-                    <button class="input-section__button input-section__button--encrypt">Encriptar</button>
-                    <button class="input-section__button input-section__button--decrypt">Desencriptar</button>
-                </div>
-            </section>
-        </main>
-        <aside class="aside">
-            <h2 class="aside__title">Ningún mensaje fue encontrado</h2>
-            <p id="result" class="aside__message">Ingresa el texto que desees encriptar o desencriptar.</p>
-        </aside>
-        <footer class="footer">
-            <p class="footer__credits">
-                Challenge Desarrollado por Leonardo Perdomo
-            </p>
-        </footer>
+		<header class="header">
+			<a href="#home" class="header__logo-link">
+				<img src="./assets/alura-logo.png" alt="Alura" class="header__logo-img" />
+			</a>
+		</header>
+		<main class="main">
+			<section class="input-section">
+				<input type="text" id="message" placeholder="Ingrese el texto aqui" class="input-section__input" />
+				<p class="input-section__instructions">
+					<i>
+						<img src="./assets/info-icon.png" alt="info-icon" class="input-section__info-icon" />
+					</i>
+					Solo letras minúsculas y sin acentos
+				</p>
+				<div class="input-section__buttons">
+					<button
+						class="input-section__button input-section__button--encrypt"
+						id="encryptButton"
+						onclick="encrypt()"
+					>
+						Encriptar
+					</button>
+					<button
+						class="input-section__button input-section__button--decrypt"
+						id="decryptButton"
+						onclick="decrypt()"
+					>
+						Desencriptar
+					</button>
+				</div>
+			</section>
+		</main>
+		<aside class="aside">
+            <img src="./assets/alura-img.png" alt="Alura" class="aside__img aside__img--alura" />
+			<h2 class="aside__title">Ningún mensaje fue encontrado</h2>
+			<p id="result" class="aside__message">Ingresa el texto que desees encriptar o desencriptar.</p>
+			<button class="aside__button aside__button--copy" id="copyButton" onclick="copyToClipboard()">
+                Copiar
+            </button>
+		</aside>
+		<footer class="footer">
+			<p class="footer__credits">Challenge Desarrollado por Leonardo Perdomo</p>
+		</footer>
+		<script src="./script/app.js"></script>
 	</body>
 </html>
