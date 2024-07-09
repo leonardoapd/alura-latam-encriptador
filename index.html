@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Challenge - Desafio 1 - Logica</title>
+        <link rel="stylesheet" href="./styles/styles.css" />
 	</head>
 	<body>
 		<header class="header">
@@ -13,7 +14,7 @@
 		</header>
 		<main class="main">
 			<section class="input-section">
-				<input type="text" id="message" placeholder="Ingrese el texto aqui" class="input-section__input" />
+                <textarea id="message" placeholder="Ingrese el texto aqui" class="input-section__input" rows="5"></textarea>
 				<p class="input-section__instructions">
 					<i>
 						<img src="./assets/info-icon.png" alt="info-icon" class="input-section__info-icon" />
@@ -37,15 +38,15 @@
 					</button>
 				</div>
 			</section>
+            <aside class="aside">
+                <img src="./assets/alura-img.png" alt="Alura" class="aside__img aside__img--alura" />
+                <h2 class="aside__title">Ningún mensaje fue encontrado</h2>
+                <p id="result" class="aside__message">Ingresa el texto que desees encriptar o desencriptar.</p>
+                <button class="aside__button aside__button--copy" id="copyButton" onclick="copyToClipboard()">
+                    Copiar
+                </button>
+            </aside>
 		</main>
-		<aside class="aside">
-            <img src="./assets/alura-img.png" alt="Alura" class="aside__img aside__img--alura" />
-			<h2 class="aside__title">Ningún mensaje fue encontrado</h2>
-			<p id="result" class="aside__message">Ingresa el texto que desees encriptar o desencriptar.</p>
-			<button class="aside__button aside__button--copy" id="copyButton" onclick="copyToClipboard()">
-                Copiar
-            </button>
-		</aside>
 		<footer class="footer">
 			<p class="footer__credits">Challenge Desarrollado por Leonardo Perdomo</p>
 		</footer>

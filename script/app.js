@@ -51,15 +51,17 @@ function toggleDisplay(selector, displayStyle = 'block') {
 // Función para actualizar el contenido de un elemento
 function updateElementContent(selector, content) {
 	document.querySelector(selector).innerHTML = content;
+    document.querySelector('.aside').style.textAlign = 'justify';
+    document.querySelector('.aside__message').style.color = '#343A40';
 }
 
 // Función para encriptar o desencriptar un mensaje
 function processMessage(isEncrypting) {
 	let message = messageToProcess.value;
-	if (!charactersValidation(message)) {
-		alert('Please enter only lowercase letters');
-		return;
-	}
+	// if (!charactersValidation(message)) {
+	// 	alert('Please enter only lowercase letters');
+	// 	return;
+	// }
 
 	let processedMessage = isEncrypting ? encryptMessage(message) : decryptMessage(message);
 
@@ -77,10 +79,10 @@ function processMessage(isEncrypting) {
  * @param {string} message - Mensaje a encriptar.
  */
 function encryptMessage(message) {
-	if (!charactersValidation(message)) {
-		alert('Please enter only lowercase letters');
-		return;
-	}
+	// if (!charactersValidation(message)) {
+	// 	alert('Please enter only lowercase letters');
+	// 	return;
+	// }
 	return message
 		.split('')
 		.map((letter) => {
