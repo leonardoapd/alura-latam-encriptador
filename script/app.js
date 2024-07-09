@@ -19,19 +19,36 @@ let encryptionValues = {
  * @returns {void}
  */
 function copyToClipboard() {
-	let textToCopy = document.getElementById('result').innerHTML;
-	navigator.clipboard.writeText(textToCopy);
-}
-
+    let element = document.getElementById('result');
+    
+    if (document.body.createTextRange) {
+      // Para Internet Explorer
+      const range = document.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      // Para otros navegadores
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+    
+    // Copiar el texto al portapapeles
+    let textToCopy = element.innerHTML;
+    navigator.clipboard.writeText(textToCopy);
+  }
+  
 /**
  * Valida que el mensaje ingresado por el usuario contenga solo letras minúsculas.
- * @function charactersValidation
+ * @function phraseValidation
  * @param {string} word - Palabra a validar.
  * @returns {boolean}
  */
-function charactersValidation(word) {
-	let validCharacters = /^[a-z]+$/.test(word);
-	return validCharacters;
+function phraseValidation(sentence) {
+    const validCharacters = /^[a-z\s]+$/;
+    return validCharacters.test(sentence);
 }
 
 /**
@@ -52,16 +69,17 @@ function toggleDisplay(selector, displayStyle = 'block') {
 function updateElementContent(selector, content) {
 	document.querySelector(selector).innerHTML = content;
     document.querySelector('.aside').style.textAlign = 'justify';
+    document.querySelector('.aside').style.justifyContent = 'space-between';
     document.querySelector('.aside__message').style.color = '#343A40';
 }
 
 // Función para encriptar o desencriptar un mensaje
 function processMessage(isEncrypting) {
 	let message = messageToProcess.value;
-	// if (!charactersValidation(message)) {
-	// 	alert('Please enter only lowercase letters');
-	// 	return;
-	// }
+	if (!phraseValidation(message)) {
+		alert('Please enter only lowercase letters');
+		return;
+	}
 
 	let processedMessage = isEncrypting ? encryptMessage(message) : decryptMessage(message);
 
