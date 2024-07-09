@@ -47,7 +47,7 @@ function copyToClipboard() {
  * @returns {boolean}
  */
 function phraseValidation(sentence) {
-    const validCharacters = /^[a-z\s]+$/;
+	const validCharacters = /^[a-z\s!]+$/i;
     return validCharacters.test(sentence);
 }
 
